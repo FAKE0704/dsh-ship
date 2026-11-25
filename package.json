@@ -1,0 +1,60 @@
+{
+  "name": "dsh-ship",
+  "version": "0.0.1",
+  "description": "Publish static web apps built in DeepSeek Harness sessions to your own VPS + domain: Caddy auto-HTTPS, atomic releases, rollback, config hot-reload. Agent tools (ship_*), no daemon on the server.",
+  "type": "module",
+  "license": "MIT",
+  "author": "FAKE0704",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAKE0704/dsh-ship.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FAKE0704/dsh-ship/issues"
+  },
+  "homepage": "https://github.com/FAKE0704/dsh-ship#readme",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "core.js",
+    "ssh.js",
+    "host-service.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "tests"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0-rc.2 <0.3.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "deploy",
+    "publish",
+    "caddy",
+    "static-site"
+  ],
+  "dependencies": {
+    "ssh2": "^1.16.0"
+  },
+  "scripts": {
+    "test": "node --test tests/",
+    "check": "node --check index.js && node --check core.js && node --check ssh.js && node --check host-service.js",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "sideEffects": false
+}

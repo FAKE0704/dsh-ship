@@ -1,0 +1,8 @@
+# dsh-ship bundle patch: one-row aggregate plugin.
+# 配置缺省 {}——statePath / remoteRoot / maxVersions / autoRollback 全部在
+# apply() 内手工解析（对齐 dsh-local-llm 的经验：裸函数模块不声明 schemastery
+# Config 面，声明了激活即崩）。
+- insert:
+    - id: dsh-ship
+      name: dsh-ship
+      config: {}
